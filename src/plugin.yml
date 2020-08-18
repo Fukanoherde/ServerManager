@@ -8,3 +8,7 @@ commands:
     aliases:
       - cc
     description:
+  gamemode:
+    aliases:
+      - gm
+    description: 
