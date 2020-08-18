@@ -21,7 +21,7 @@ public class CMD_GameMode implements CommandExecutor {
 
         if (cms instanceof Player) {
             Player p = (Player) cms;
-                if (args.length == 0) {
+                if (args.length == 1) {
                     if (args[0].equalsIgnoreCase("0")) {
                         if (p.hasPermission("")) {
                             p.setGameMode(GameMode.SURVIVAL);
@@ -73,7 +73,7 @@ public class CMD_GameMode implements CommandExecutor {
                 } else {
                     p.sendMessage("");
                 }
-            if (args.length == 1) {
+            if (args.length == 2) {
                 if (args[0].equalsIgnoreCase("0")) {
                     Player target = (Player) Bukkit.getPlayer(args[0]);
                     if (p.hasPermission("")) {
@@ -95,9 +95,31 @@ public class CMD_GameMode implements CommandExecutor {
             } else {
 
             }
-            if (args.length == 1) {
+            if (args.length == 2) {
+                if (args[0].equalsIgnoreCase("0")) {
+                    Player target = (Player) Bukkit.getPlayer(args[1]);
+                    if (p.hasPermission("")) {
+                        if (target != null) {
+                            target.setGameMode(GameMode.SURVIVAL);
+                            target.sendMessage("");
+                            p.sendMessage("");
+                            return true;
+                        } else {
+                            p.sendMessage("§cDer Spieler ist nicht Online!");
+                        }
+                    } else {
+
+                        // NoPerm \\
+
+                        p.sendMessage("");
+                    }
+                }
+            } else {
+
+            }
+            if (args.length == 2) {
                 if (args[0].equalsIgnoreCase("1")) {
-                    Player target = (Player) Bukkit.getPlayer(args[0]);
+                    Player target = (Player) Bukkit.getPlayer(args[1]);
                     if (p.hasPermission("")) {
                         if (target != null) {
                             target.setGameMode(GameMode.CREATIVE);
@@ -117,9 +139,9 @@ public class CMD_GameMode implements CommandExecutor {
             } else {
 
             }
-            if (args.length == 1) {
+            if (args.length == 2) {
                 if (args[0].equalsIgnoreCase("2")) {
-                    Player target = (Player) Bukkit.getPlayer(args[0]);
+                    Player target = (Player) Bukkit.getPlayer(args[1]);
                     if (p.hasPermission("")) {
                         if (target != null) {
                             target.setGameMode(GameMode.ADVENTURE);
@@ -139,9 +161,9 @@ public class CMD_GameMode implements CommandExecutor {
             } else {
 
             }
-            if (args.length == 1) {
+            if (args.length == 2) {
                 if (args[0].equalsIgnoreCase("3")) {
-                    Player target = (Player) Bukkit.getPlayer(args[0]);
+                    Player target = (Player) Bukkit.getPlayer(args[1]);
                     if (p.hasPermission("")) {
                         if (target != null) {
                             target.setGameMode(GameMode.SPECTATOR);
