@@ -11,4 +11,4 @@ commands:
   gamemode:
     aliases:
       - gm
-    description: 
+    description:
