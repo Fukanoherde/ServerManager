@@ -1,0 +1,10 @@
+name: EasyServerManager
+author: PsychoGamer_95
+version: 0.1
+website: https://www.fukanoherde.de
+main: de.psychogamer_95.easyservermanager.Main
+commands:
+  chatclear:
+    aliases:
+      - cc
+    description:
