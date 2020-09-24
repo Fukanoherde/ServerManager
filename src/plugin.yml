@@ -8,3 +8,5 @@ commands:
     aliases:
       - gm
     description:
+  zeit:
+    description:
