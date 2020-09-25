@@ -18,3 +18,7 @@ commands:
     aliases:
       - tb
     description:
+  unban:
+    aliases:
+      - ub
+    description:
