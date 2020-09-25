@@ -22,3 +22,5 @@ commands:
     aliases:
       - ub
     description:
+  check:
+    description:
