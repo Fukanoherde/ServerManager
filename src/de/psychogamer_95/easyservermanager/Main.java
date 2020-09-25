@@ -2,9 +2,14 @@ package de.psychogamer_95.easyservermanager;
 
 import de.psychogamer_95.easyservermanager.commands.CMD_Ban;
 import de.psychogamer_95.easyservermanager.commands.CMD_GameMode;
+import de.psychogamer_95.easyservermanager.commands.CMD_Tempban;
 import de.psychogamer_95.easyservermanager.commands.CMD_TimeManager;
+import de.psychogamer_95.easyservermanager.database.MySQL;
+import de.psychogamer_95.easyservermanager.listener.PlayerManager;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.File;
 
 public class Main extends JavaPlugin {
 
@@ -12,6 +17,8 @@ public class Main extends JavaPlugin {
     private CMD_GameMode gm;
     private CMD_TimeManager time;
     private CMD_Ban ban;
+    private CMD_Tempban temp;
+    private PlayerManager player;
 
     @Override
     public void onEnable() {
@@ -19,14 +26,28 @@ public class Main extends JavaPlugin {
         // Utils \\
 
         instance = this;
+        if(!new File(getDataFolder(), "config.yml").exists()) {
+            saveResource("config.yml", true);
+        }
 
         // MySQL \\
+
+        MySQL.setStandardMySQL();
+        MySQL.readMySQL();
+        MySQL.Connect();
+        MySQL.createBanTable();
+        MySQL.createMuteTable();
 
         // Commands \\
 
         this.gm = new CMD_GameMode(this);
         this.time = new CMD_TimeManager(this);
         this.ban = new CMD_Ban(this);
+        this.temp = new CMD_Tempban(this);
+
+        // Listener \\
+
+        this.player = new PlayerManager(this);
 
     }
 
@@ -65,6 +86,4 @@ public class Main extends JavaPlugin {
     public int LebensLevel = getConfig().getInt("EasyServerManager.LebensLevel");
     public String TabHeader = ChatColor.translateAlternateColorCodes('&', getConfig().getString("Tablist.Header"));
     public String TabFooter = ChatColor.translateAlternateColorCodes('&', getConfig().getString("Tablist.Footer"));
-    public String TitleHeader = ChatColor.translateAlternateColorCodes('&', getConfig().getString("Title.Header"));
-    public String TitleFooter = ChatColor.translateAlternateColorCodes('&', getConfig().getString("Title.Footer"));
 }
