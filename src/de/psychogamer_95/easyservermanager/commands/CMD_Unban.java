@@ -2,11 +2,11 @@ package de.psychogamer_95.easyservermanager.commands;
 
 import de.psychogamer_95.easyservermanager.Main;
 import de.psychogamer_95.easyservermanager.api.BanAPI;
+import de.psychogamer_95.easyservermanager.manager.PermManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 public class CMD_Unban implements CommandExecutor {
 
@@ -18,7 +18,7 @@ public class CMD_Unban implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (sender.hasPermission("easyservermanager.unban")) {
+        if (sender.hasPermission((String) PermManager.getValue("Perms.Unban")) || sender.hasPermission((String) PermManager.getValue("Perms.All"))) {
             String target = args[0];
             if (args.length == 1) {
                 if(!BanAPI.isBanned(getUUID(target))) {
@@ -33,7 +33,7 @@ public class CMD_Unban implements CommandExecutor {
                 return true;
             }
         } else {
-            sender.sendMessage(plugin.Prefix + "§4Keine Rechte...");
+            sender.sendMessage(plugin.Prefix + plugin.NoPerm);
         }
         return true;
     }
