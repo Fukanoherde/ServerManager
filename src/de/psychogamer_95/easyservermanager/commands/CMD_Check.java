@@ -3,6 +3,7 @@ package de.psychogamer_95.easyservermanager.commands;
 import de.psychogamer_95.easyservermanager.Main;
 import de.psychogamer_95.easyservermanager.api.BanAPI;
 import de.psychogamer_95.easyservermanager.api.MuteAPI;
+import de.psychogamer_95.easyservermanager.manager.PermManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -20,7 +21,7 @@ public class CMD_Check implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (sender.hasPermission("")) {
+        if (sender.hasPermission((String) PermManager.getValue("Perms.Check")) || sender.hasPermission((String)PermManager.getValue("Perms.All"))) {
             if (args.length == 1) {
                 if(args[0].equalsIgnoreCase("list")) {
                     List<String> list = BanAPI.getBannedPlayers();
