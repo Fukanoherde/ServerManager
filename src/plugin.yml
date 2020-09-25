@@ -24,3 +24,5 @@ commands:
     description:
   check:
     description:
+  mute:
+    description: 
