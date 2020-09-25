@@ -3,6 +3,9 @@ package de.psychogamer_95.easyservermanager;
 import de.psychogamer_95.easyservermanager.commands.*;
 import de.psychogamer_95.easyservermanager.database.MySQL;
 import de.psychogamer_95.easyservermanager.listener.PlayerManager;
+import de.psychogamer_95.easyservermanager.manager.MessageManager;
+import de.psychogamer_95.easyservermanager.manager.PermManager;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -29,6 +32,11 @@ public class Main extends JavaPlugin {
         if(!new File(getDataFolder(), "config.yml").exists()) {
             saveResource("config.yml", true);
         }
+
+        // Files \\
+
+        PermManager.loadFile();
+        MessageManager.loadFile();
 
         // MySQL \\
 
@@ -57,6 +65,7 @@ public class Main extends JavaPlugin {
     @Override
     public void onDisable() {
 
+        MySQL.close();
     }
 
     public static Main getSystem () {
