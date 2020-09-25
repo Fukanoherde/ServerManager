@@ -1,9 +1,6 @@
 package de.psychogamer_95.easyservermanager;
 
-import de.psychogamer_95.easyservermanager.commands.CMD_Ban;
-import de.psychogamer_95.easyservermanager.commands.CMD_GameMode;
-import de.psychogamer_95.easyservermanager.commands.CMD_Tempban;
-import de.psychogamer_95.easyservermanager.commands.CMD_TimeManager;
+import de.psychogamer_95.easyservermanager.commands.*;
 import de.psychogamer_95.easyservermanager.database.MySQL;
 import de.psychogamer_95.easyservermanager.listener.PlayerManager;
 import org.bukkit.ChatColor;
@@ -18,6 +15,7 @@ public class Main extends JavaPlugin {
     private CMD_TimeManager time;
     private CMD_Ban ban;
     private CMD_Tempban temp;
+    private CMD_Unban unban;
     private PlayerManager player;
 
     @Override
@@ -44,6 +42,7 @@ public class Main extends JavaPlugin {
         this.time = new CMD_TimeManager(this);
         this.ban = new CMD_Ban(this);
         this.temp = new CMD_Tempban(this);
+        this.unban = new CMD_Unban(this);
 
         // Listener \\
 
