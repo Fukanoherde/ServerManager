@@ -29,7 +29,7 @@ public class MySQL {
                 con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + "?user=" + username + "&password=" + password + "&autoReconnect=true");
                 Bukkit.getConsoleSender().sendMessage("§7[§3MySQL§7] §eThe database succesfully connected!");
             } catch (SQLException er) {
-                Bukkit.getConsoleSender().sendMessage("�7[�3MySQL�7] �4ERROR: the connection has been error! �3Please contact the Plugin Developer -> PsychoGamer_95!");
+                Bukkit.getConsoleSender().sendMessage("§7[§3MySQL§7] §4ERROR: the connection has been error! §3Please contact the Plugin Developer -> PsychoGamer_95!");
             }
         }
     }
@@ -50,7 +50,7 @@ public class MySQL {
         if (isConnected()) {
             try {
                 con.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS BannedPlayers (Name VARCHAR(100), UUID VARCHAR(100), End VARCHAR(100), Reason VARCHAR(100))");
-                Bukkit.getConsoleSender().sendMessage("�7[�3MySQL�7] BannedPlayers Table created");
+                Bukkit.getConsoleSender().sendMessage("§7[§3MySQL§7] BannedPlayers Table created");
 
             } catch (SQLException er) {
                 Bukkit.getConsoleSender().sendMessage("§7[§3MySQL§7] §4the §cBannedPlayers §4Table can not created! §cPlease contact the Plugin Developer -> §4PsychoGamer_95");
@@ -61,7 +61,7 @@ public class MySQL {
         if (isConnected()) {
             try {
                 con.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS MutedPlayers (Name VARCHAR(100), UUID VARCHAR(100), End VARCHAR(100), Reason VARCHAR(100))");
-                Bukkit.getConsoleSender().sendMessage("�7[�3MySQL�7] MutedPlayers Table created");
+                Bukkit.getConsoleSender().sendMessage("§7[§3MySQL§7] MutedPlayers Table created");
 
             } catch (SQLException er) {
                 Bukkit.getConsoleSender().sendMessage("§7[§3MySQL§7] §4the §cMutedPlayers §4Table can not created! §cPlease contact the Plugin Developer -> §4PsychoGamer_95");
