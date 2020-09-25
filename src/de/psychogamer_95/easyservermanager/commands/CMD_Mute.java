@@ -2,6 +2,7 @@ package de.psychogamer_95.easyservermanager.commands;
 
 import de.psychogamer_95.easyservermanager.Main;
 import de.psychogamer_95.easyservermanager.api.MuteAPI;
+import de.psychogamer_95.easyservermanager.manager.PermManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -16,11 +17,11 @@ public class CMD_Mute implements CommandExecutor {
     }
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (sender.hasPermission("")) {
+        if (sender.hasPermission((String) PermManager.getValue("Perms.Mute")) || sender.hasPermission((String)PermManager.getValue("Perms.All"))) {
             if (args.length >=2) {
                 String playername = args[0];
                 if (!MuteAPI.isMuted(getUUID(playername))) {
-                    sender.sendMessage(plugin.Prefix + "");
+                    sender.sendMessage(plugin.Prefix + "§cSpieler ist bereits gemutet!");
                     return true;
                 } else {
                     String reason = "";
@@ -28,7 +29,7 @@ public class CMD_Mute implements CommandExecutor {
                         reason += args[i] + " ";
                     }
                     MuteAPI.Mute(getUUID(playername), playername, reason, -1);
-                    sender.sendMessage(Main.getSystem().Prefix + "§7Du hast §e" + playername + " §4PERMAMENT §7vom Chat gebannt!");
+                    sender.sendMessage(plugin.Prefix + "§7Du hast §e" + playername + " §4PERMAMENT §7vom Chat gebannt!");
                     return true;
                 }
             } else {
