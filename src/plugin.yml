@@ -14,3 +14,7 @@ commands:
     aliases:
       - b
     description:
+  tempban:
+    aliases:
+      - tb
+    description:
