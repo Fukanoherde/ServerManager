@@ -1,0 +1,66 @@
+######################################################
+#                                                    #
+# EasyServerManager v0.1                             #
+# Developer PsychoGamer_95                           #
+# Tested MC Version 1.8 - 1.16                       #
+# Support on Discord https://discord.gg/UB88vMG      #
+# Website https://www.fukanoherde.de/                #
+#                                                    #
+######################################################
+#                                                    #
+# EasyServerManager_Settings                         #
+#                                                    #
+######################################################
+
+EasyServerManager:
+  Chat-Prefix: "&7[&aEasyServerManager&7] &f"
+  BungeeCord: true
+  AntiBlockBreak: false
+  AntiBlockPlace: false
+  AntiWeather: false
+  AntiServerChat: false
+  Hunger: false
+  HungerLevel: 20
+  LebensLevel: 20
+  Wartung: false
+  Scoreboard: true
+  ServerName: "&aDeinServer.net"
+  Forum: "&eDeinServer.net"
+  TeamSpeak: "§eDeinServer.net"
+  LevelName: "world"
+  MaxPlayer: 50
+  AllowRain: true
+
+######################################################
+#                                                    #
+# EasyServerManager_Messages                         #
+#                                                    #
+######################################################
+
+Messages:
+  AllowJoinMessage: true
+  JoinMessage: "&2%player% &ehat den Server betreten!"
+  AllowQuitMessage: true
+  QuitMessage: "&c%player% &4hat den Server verlassen!"
+  NoPerm: "&cDu bist nicht befugt dies zu tun!"
+
+######################################################
+#                                                    #
+# EasyServerManager_Tablist                          #
+#                                                    #
+######################################################
+
+Tablist:
+  Header: "&3Herzlich Willkommen auf Meinem Server"
+  Footer: "&aTeamSpeak DeinServer.net\n&bDu befindest dich auf der Lobby"
+
+######################################################
+#                                                    #
+# EasyServerManager_MOTD                             #
+#                                                    #
+######################################################
+
+MOTD:
+  Header: "&6Herzlich Willkommen &aAuf meinem Server"
+  Footer: "&4NEWS: + &cLobbySystem &4+ &cBanSystem"
+  Wartung: "&cTut uns leid wir haben Momentane &4Wartungsarbeiten"
