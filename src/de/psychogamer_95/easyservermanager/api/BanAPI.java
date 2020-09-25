@@ -45,11 +45,17 @@ public class BanAPI {
         MySQL.update("DELETE FROM BannedPlayers WHERE UUID='"+uuid+"'");
     }
     public static boolean isBanned(String uuid) {
-        ResultSet rs = MySQL.getResult("SELECT End FROM BannedPlayers WHERE UUID='"+uuid+"'");
-        try {
-            return rs.next();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if(existsPlayer(uuid)) {
+            long end = getEnd(uuid);
+
+            long remainingTime = end - System.currentTimeMillis();
+
+            if (remainingTime < 0) {
+                System.out.println(remainingTime);
+                unban(uuid);
+                return false;
+            }
+            return true;
         }
         return false;
     }
@@ -64,10 +70,21 @@ public class BanAPI {
         }
         return "";
     }
+    public static boolean existsPlayer(String uuid) {
+        ResultSet rs = MySQL.getResult("SELECT 1 FROM BannedPlayers WHERE UUID='"+uuid+"'");
+        try {
+            if (rs.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
     public static Long getEnd(String uuid) {
         ResultSet rs = MySQL.getResult("SELECT * FROM BannedPlayers WHERE UUID='"+uuid+"'");
         try {
-            while(rs.next()) {
+            if (rs.next()) {
                 return rs.getLong("End");
             }
         } catch (SQLException e) {
@@ -95,10 +112,10 @@ public class BanAPI {
         }
         long millis = end - current;
         long seconds = 0;
-        long minutes = 0;
-        long hours = 0;
-        long days = 0;
-        long weeks = 0;
+        int minutes = 0;
+        int hours = 0;
+        int days = 0;
+        int weeks = 0;
         while(millis > 1000) {
             millis-=1000;
             seconds++;
@@ -108,15 +125,15 @@ public class BanAPI {
             minutes++;
         }
         while(minutes > 60) {
-            millis-=60;
+            minutes-=60;
             hours++;
         }
         while(hours > 24) {
-            millis-=24;
+            hours-=24;
             days++;
         }
         while(days > 7) {
-            millis-=7;
+            days-=7;
             weeks++;
         }
         return "§e" + weeks + " §Woche(n) " + days + " Tage(n) " + hours + " Stunde(n) " + minutes + " Minute(n) " + seconds + " Sekunde(n)";
