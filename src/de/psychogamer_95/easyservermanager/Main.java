@@ -17,6 +17,7 @@ public class Main extends JavaPlugin {
     private CMD_Tempban temp;
     private CMD_Unban unban;
     private CMD_Check check;
+    private CMD_Mute mute;
     private PlayerManager player;
 
     @Override
@@ -45,6 +46,7 @@ public class Main extends JavaPlugin {
         this.temp = new CMD_Tempban(this);
         this.unban = new CMD_Unban(this);
         this.check = new CMD_Check(this);
+        this.mute = new CMD_Mute(this);
 
         // Listener \\
 
