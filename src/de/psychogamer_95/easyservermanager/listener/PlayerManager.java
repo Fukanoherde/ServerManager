@@ -2,7 +2,6 @@ package de.psychogamer_95.easyservermanager.listener;
 
 import de.psychogamer_95.easyservermanager.Main;
 import de.psychogamer_95.easyservermanager.api.BanAPI;
-import de.psychogamer_95.easyservermanager.database.MySQL;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
