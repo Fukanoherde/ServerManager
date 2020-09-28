@@ -2,10 +2,9 @@ package de.psychogamer_95.easyservermanager;
 
 import de.psychogamer_95.easyservermanager.commands.*;
 import de.psychogamer_95.easyservermanager.database.MySQL;
-import de.psychogamer_95.easyservermanager.listener.PlayerManager;
+import de.psychogamer_95.easyservermanager.listener.*;
 import de.psychogamer_95.easyservermanager.manager.MessageManager;
 import de.psychogamer_95.easyservermanager.manager.PermManager;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
