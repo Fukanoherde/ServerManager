@@ -136,6 +136,6 @@ public class BanAPI {
             days-=7;
             weeks++;
         }
-        return "§e" + weeks + " §Woche(n) " + days + " Tage(n) " + hours + " Stunde(n) " + minutes + " Minute(n) " + seconds + " Sekunde(n)";
+        return "§e" + weeks + " §eWoche(n) " + days + " Tage(n) " + hours + " Stunde(n) " + minutes + " Minute(n) " + seconds + " Sekunde(n)";
     }
 }
