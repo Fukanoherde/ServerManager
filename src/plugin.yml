@@ -30,3 +30,5 @@ commands:
     aliases:
       - k
     description:
+  wetter:
+    description:
