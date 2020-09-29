@@ -18,6 +18,7 @@ public class Main extends JavaPlugin {
     private CMD_Ban ban;
     private CMD_Tempban temp;
     private CMD_Unban unban;
+    private CMD_Weather weather;
     private CMD_Check check;
     private CMD_Mute mute;
     private CMD_Kick kick;
@@ -57,6 +58,7 @@ public class Main extends JavaPlugin {
         this.check = new CMD_Check(this);
         this.mute = new CMD_Mute(this);
         this.kick = new CMD_Kick(this);
+        this.weather = new CMD_Weather(this);
 
         // Listener \\
 
