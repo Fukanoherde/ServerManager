@@ -28,9 +28,9 @@ public class MySQL {
         if (!isConnected()) {
             try {
                 con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + "?user=" + username + "&password=" + password + "&autoReconnect=true");
-                Bukkit.getConsoleSender().sendMessage(MessageManager.getValue("Message.MySQL_Connect") + " §3Please contact the Plugin Developer -> PsychoGamer_95!");
+                Bukkit.getConsoleSender().sendMessage(MessageManager.getValue("Message.MySQL_Connect").toString().replaceAll("&", "§") + " §3Please contact the Plugin Developer -> PsychoGamer_95!");
             } catch (SQLException er) {
-                Bukkit.getConsoleSender().sendMessage(MessageManager.getValue("Message.MySQL_Connect_Error") + " §3Please contact the Plugin Developer -> PsychoGamer_95!");
+                Bukkit.getConsoleSender().sendMessage(MessageManager.getValue("Message.MySQL_Connect_Error").toString().replaceAll("&", "§") + " §3Please contact the Plugin Developer -> PsychoGamer_95!");
             }
         }
     }
@@ -38,9 +38,9 @@ public class MySQL {
         if (isConnected()) {
             try {
                 con.close();
-                Bukkit.getConsoleSender().sendMessage("§7[§3MySQL§7] §ethe Connection succesfully close!");
+                Bukkit.getConsoleSender().sendMessage(MessageManager.getValue("Message.MySQL_Close").toString().replaceAll("&", "§"));
             } catch (SQLException er) {
-                Bukkit.getConsoleSender().sendMessage("§7[§3MySQL§7] §4the MySQL Connection can not Close! §cPlease contact the Plugin Developer -> §4PsychoGamer_95");
+                Bukkit.getConsoleSender().sendMessage(MessageManager.getValue("MySQL_Close_Error").toString().replaceAll("&", "§" + "§cPlease contact the Plugin Developer -> §4PsychoGamer_95"));
             }
         }
     }
