@@ -20,7 +20,9 @@ public class Main extends JavaPlugin {
     private CMD_Unban unban;
     private CMD_Check check;
     private CMD_Mute mute;
+    private CMD_Kick kick;
     private PlayerManager player;
+    private ServerManager server;
 
     @Override
     public void onEnable() {
@@ -54,10 +56,12 @@ public class Main extends JavaPlugin {
         this.unban = new CMD_Unban(this);
         this.check = new CMD_Check(this);
         this.mute = new CMD_Mute(this);
+        this.kick = new CMD_Kick(this);
 
         // Listener \\
 
         this.player = new PlayerManager(this);
+        this.server = new ServerManager(this);
 
     }
 
