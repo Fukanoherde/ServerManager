@@ -17,6 +17,7 @@ public class PermManager {
         setValue("Perms.Time", "easyservermanager.time");
         setValue("Perms.Unban", "easyservermanager.unban");
         setValue("Perms.Kick", "easyservermanager.kick");
+        setValue("Perms.Weather", "easyservermanager.weather");
     }
     private static void setValue(String valuePath, String value){
         if (!fileWriter.valueExist(valuePath)){
