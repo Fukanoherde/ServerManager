@@ -26,9 +26,9 @@ public class MessageManager {
         setValue("Message.MySQL_CreateMuteTable", "&7[&3MySQL&7] &eMutedPlayers Table created");
         setValue("Message.MySQL_CreateMuteTable_Error", "&7[&3MySQL&7] &4the &cMutedPlayers &4Table can not created!");
 
-        setValue("Message.NoPerm", "easyservermanager.*");
-        setValue("Message.Use_Check", "easyservermanager.ban");
-        setValue("Message.Use_GameMode", "easyservermanager.tempban");
+        setValue("Message.UseKick", "&bUse: &7/kick <Player> <Reason>");
+        setValue("Message.PlayerNotOnlineKick", "&cThe specified player is not online");
+        setValue("Message.YourselfKick", "&cWhy do you want to kick yourself");
         setValue("Message.Use_Ban", "easyservermanager.check");
         setValue("Message.Use_Gamemode", "easyservermanager.gamemode");
         setValue("Message.Use_Mute", "easyservermanager.gamemode.other");
