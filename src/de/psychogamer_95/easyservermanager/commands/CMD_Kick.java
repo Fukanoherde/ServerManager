@@ -42,7 +42,7 @@ public class CMD_Kick implements CommandExecutor {
                     }
                 }
             } else {
-                sender.sendMessage(MessageManager.getValue("Message.UseKick").toString().replaceAll("&", "§"));
+                sender.sendMessage(MessageManager.getValue("Message.Use_Kick").toString().replaceAll("&", "§"));
                 return true;
             }
         } else {
