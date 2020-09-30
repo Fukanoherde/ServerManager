@@ -12,7 +12,7 @@ public class PermManager {
         setValue("Perms.Tempban", "easyservermanager.tempban");
         setValue("Perms.Check", "easyservermanager.check");
         setValue("Perms.Gamemode", "easyservermanager.gamemode");
-        setValue("Perms.Gamer_Other", "easyservermanager.gamemode.other");
+        setValue("Perms.Gamemode_Other", "easyservermanager.gamemode.other");
         setValue("Perms.Mute", "easyservermanager.mute");
         setValue("Perms.Time", "easyservermanager.time");
         setValue("Perms.Unban", "easyservermanager.unban");
