@@ -37,7 +37,7 @@ public class CMD_Kick implements CommandExecutor {
                                 + "§bDu wurdest vom Server gekickt!\n§cGrund: §4" + msg + "\n\n§9gekickt worden von: §7" + sender.getName());
                         return true;
                     } else {
-                        sender.sendMessage(plugin.Prefix + MessageManager.getValue("MessageManager.PlayerNotOnlineKick").toString().replaceAll("&", "§"));
+                        sender.sendMessage(plugin.Prefix + MessageManager.getValue("Message.PlayerNotOnlineKick").toString().replaceAll("&", "§"));
                         return true;
                     }
                 }
