@@ -79,37 +79,15 @@ public class CMD_GameMode implements CommandExecutor {
                 }
             if (args.length == 2) {
                 if (args[0].equalsIgnoreCase("0")) {
-                    Player target = (Player) Bukkit.getPlayer(args[0]);
-                    if (p.hasPermission((String) PermManager.getValue("Perms.Gamemode.Other")) || p.hasPermission((String)PermManager.getValue("Perms.All"))) {
-                        if (target != null) {
-                            target.setGameMode(GameMode.SURVIVAL);
-                            target.sendMessage(plugin.Prefix + "");
-                            p.sendMessage(plugin.Prefix + "");
-                            return true;
-                        } else {
-                            p.sendMessage(plugin.Prefix + "§cDer Spieler ist nicht Online!");
-                        }
-                    } else {
-
-                        // NoPerm \\
-
-                        p.sendMessage(plugin.Prefix + plugin.NoPerm);
-                    }
-                }
-            } else {
-
-            }
-            if (args.length == 2) {
-                if (args[0].equalsIgnoreCase("0")) {
                     Player target = (Player) Bukkit.getPlayer(args[1]);
-                    if (p.hasPermission((String) PermManager.getValue("Perms.Gamemode.Other")) || p.hasPermission((String)PermManager.getValue("Perms.All"))) {
-                        if (target != null) {
-                            target.setGameMode(GameMode.SURVIVAL);
-                            target.sendMessage(plugin.Prefix + "");
-                            p.sendMessage(plugin.Prefix + "");
-                            return true;
-                        } else {
+                    if (p.hasPermission((String) PermManager.getValue("Perms.Gamemode_Other")) || p.hasPermission((String)PermManager.getValue("Perms.All"))) {
+                        if (target == null) {
                             p.sendMessage(plugin.Prefix + "§cDer Spieler ist nicht Online!");
+                        } else {
+                            target.setGameMode(GameMode.SURVIVAL);
+                            target.sendMessage(plugin.Prefix + "§eDu wurdest im SURVIVAL Modus gesetzt!");
+                            p.sendMessage(plugin.Prefix + "§bDu hast dem: §a" + target.getDisplayName() + " §bin den SURVIVAL-Modus gesetzt!");
+                            return true;
                         }
                     } else {
 
@@ -124,14 +102,20 @@ public class CMD_GameMode implements CommandExecutor {
             if (args.length == 2) {
                 if (args[0].equalsIgnoreCase("1")) {
                     Player target = (Player) Bukkit.getPlayer(args[1]);
-                    if (p.hasPermission((String) PermManager.getValue("Perms.Gamemode.Other")) || p.hasPermission((String)PermManager.getValue("Perms.All"))) {
-                        if (target != null) {
-                            target.setGameMode(GameMode.CREATIVE);
-                            target.sendMessage(plugin.Prefix + "");
-                            p.sendMessage(plugin.Prefix + "");
+                    if (p.hasPermission((String) PermManager.getValue("Perms.Gamemode_Other")) || p.hasPermission((String)PermManager.getValue("Perms.All"))) {
+                        if (target == p) {
+                            p.sendMessage(plugin.Prefix + "§3Bitte mache /gm <1>");
                             return true;
                         } else {
-                            p.sendMessage(plugin.Prefix + "§cDer Spieler ist nicht Online!");
+                            if (target != null) {
+                                target.setGameMode(GameMode.CREATIVE);
+                                target.sendMessage(plugin.Prefix + "§bDu wurdest im §3§nCREATIVE-Modus§b gesetzt!");
+                                p.sendMessage(plugin.Prefix + "§bDu hast den Spieler in §3§nCREATIVE-Modus§b gesetzt!");
+                                //p.sendMessage(plugin.Prefix + "§bYour have the Gamemode change to the Player to the §3Creative-Mode!");
+                                return true;
+                        } else {
+                                p.sendMessage(plugin.Prefix + "§cDer Spieler ist nicht Online!");
+                            }
                         }
                     } else {
 
@@ -146,11 +130,11 @@ public class CMD_GameMode implements CommandExecutor {
             if (args.length == 2) {
                 if (args[0].equalsIgnoreCase("2")) {
                     Player target = (Player) Bukkit.getPlayer(args[1]);
-                    if (p.hasPermission((String) PermManager.getValue("Perms.Gamemode.Other")) || p.hasPermission((String)PermManager.getValue("Perms.All"))) {
+                    if (p.hasPermission((String) PermManager.getValue("Perms.Gamemode_Other")) || p.hasPermission((String)PermManager.getValue("Perms.All"))) {
                         if (target != null) {
                             target.setGameMode(GameMode.ADVENTURE);
-                            target.sendMessage(plugin.Prefix + "");
-                            p.sendMessage(plugin.Prefix + "");
+                            target.sendMessage(plugin.Prefix + "§eDu wurdest im ADVENTURE Modus gesetzt!");
+                            p.sendMessage(plugin.Prefix + "§bDu hast dem: §a" + target.getDisplayName() + " §bin den ADVENTURE-Modus gesetzt!");
                             return true;
                         } else {
                             p.sendMessage(plugin.Prefix + "§cDer Spieler ist nicht Online!");
@@ -168,11 +152,11 @@ public class CMD_GameMode implements CommandExecutor {
             if (args.length == 2) {
                 if (args[0].equalsIgnoreCase("3")) {
                     Player target = (Player) Bukkit.getPlayer(args[1]);
-                    if (p.hasPermission((String) PermManager.getValue("Perms.Gamemode.Other")) || p.hasPermission((String)PermManager.getValue("Perms.All"))) {
+                    if (p.hasPermission((String) PermManager.getValue("Perms.Gamemode_Other")) || p.hasPermission((String)PermManager.getValue("Perms.All"))) {
                         if (target != null) {
                             target.setGameMode(GameMode.SPECTATOR);
-                            target.sendMessage(plugin.Prefix + "");
-                            p.sendMessage(plugin.Prefix + "");
+                            target.sendMessage(plugin.Prefix + "§eDu wurdest im SPECTATOR Modus gesetzt!");
+                            p.sendMessage(plugin.Prefix + "§bDu hast dem: §a" + target.getDisplayName() + " §bin den SPECTATOR-Modus gesetzt!");
                             return true;
                         } else {
                             p.sendMessage(plugin.Prefix + "§cDer Spieler ist nicht Online!");
